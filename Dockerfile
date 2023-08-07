@@ -45,7 +45,7 @@ ENV LANG C.UTF-8
 ENV TZ="Asia/Shanghai" HOME="/app"
 WORKDIR ${HOME}
 
-COPY --from builder ${NODE_HOME}/node-v${NODE_VERSION}-${NODE_DIST} ${NODE_HOME}/node-v${NODE_VERSION}-${NODE_DIST}
+COPY --from=builder ${NODE_HOME}/node-v${NODE_VERSION}-${NODE_DIST} ${NODE_HOME}/node-v${NODE_VERSION}-${NODE_DIST}
 
 
 COPY --from=builder /app/yapi-1.12.0/ /app/
