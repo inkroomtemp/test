@@ -27,7 +27,7 @@ jobs:
           context: .
           file: Dockerfile
           push: false
-          load: true
+          load: false
           tags: yapi
           outputs: type=local,dest=yapi.tar
       - name: Save
