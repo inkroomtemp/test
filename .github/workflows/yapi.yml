@@ -29,6 +29,8 @@ jobs:
           push: false
           load: false
           tags: yapi
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           outputs: type=local,dest=yapi.tar
       - name: Save
         uses: actions/upload-artifact@v3
