@@ -1,0 +1,38 @@
+name: yapi
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/yapi.yml'
+    branches:
+      - master
+      - main
+jobs:
+  yapi:
+    runs-on: ubuntu-20.04
+    permissions: write-all
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: Dockerfile
+          push: false
+          load: true
+          tags: yapi
+          outputs: type=local,dest=yapi.tar
+      - name: Save
+        uses: actions/upload-artifact@v3
+        with:
+          name: yapi.tar
+          path: yapi.tar
+          if-no-files-found: error
