@@ -29,7 +29,7 @@ RUN sed -i "s@http://.*archive.ubuntu.com@http://mirrors.huaweicloud.com@g" /etc
    && cp config_example.json ../config.json
 # RUN cd /app/yapi-1.12.0/ && cat ../config.json | sed 's/127.0.0.1/10.0.10.3/g' | sed 's/test1/root/g' | sed 's/pass": "root"/pass": "yapi"/g' > ../config.json
 
-RUN cd /app/yapi-1.12.0/ &&  npm install --production --registry $NODE_MIRROR
+RUN mkdir -p /app/yapi-1.12.0/node_modules/dtrace-provider/.node-gyp && cd /app/yapi-1.12.0/ &&  npm install --production --registry $NODE_MIRROR
 
 FROM ubuntu:20.04
 
