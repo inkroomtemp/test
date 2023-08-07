@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - '.github/workflows/yapi.yml'
+      - 'Dockerfile'
     branches:
       - master
       - main

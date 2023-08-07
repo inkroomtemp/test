@@ -49,7 +49,7 @@ COPY --from=builder ${NODE_HOME}/node-v${NODE_VERSION}-${NODE_DIST} ${NODE_HOME}
 
 
 COPY --from=builder /app/yapi-1.12.0/ /app/
-COPY config.json /app/
+# COPY config.json /app/
 EXPOSE 3001
 
 
