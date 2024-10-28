@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-20.04
     permissions: write-all
     steps:
+      - name: T
+        run: |
+          curl -i https://www.uaa.com
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Set up Docker Buildx
